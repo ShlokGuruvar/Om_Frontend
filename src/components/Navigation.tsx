@@ -48,7 +48,7 @@ export function Navigation({ currentPage, navigate }: NavigationProps) {
                 : 'text-white hover:text-[#C9A87C]'
             }`}
           >
-            Jordan Rivers
+            CinePsychic
           </button>
 
           {/* Desktop Menu */}

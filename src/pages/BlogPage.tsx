@@ -33,7 +33,7 @@ export function BlogPage({ navigate }: BlogPageProps) {
       <Section spacing="md" theme="light">
         <QuoteBlock
           quote="Every photograph is a story waiting to be told. Every frame carries the weight of a moment that will never return."
-          author="Jordan Rivers"
+          author="CinePsychic"
           variant="large"
           alignment="center"
         />

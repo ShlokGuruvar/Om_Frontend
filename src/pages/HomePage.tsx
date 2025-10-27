@@ -45,7 +45,7 @@ export function HomePage({ navigate }: HomePageProps) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1.2, delay: 0.5, ease: [0.4, 0, 0.2, 1] }}
             >
-              Jordan Rivers
+              CinePsychic
             </motion.h1>
             
             <motion.div 
@@ -131,7 +131,7 @@ export function HomePage({ navigate }: HomePageProps) {
       <Section spacing="lg" theme="cream">
         <QuoteBlock
           quote="I believe in the power of visual storytelling to transcend language and culture, connecting people through shared emotions and experiences."
-          author="Jordan Rivers"
+          author="CinePsychic"
           variant="large"
           alignment="center"
         />

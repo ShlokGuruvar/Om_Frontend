@@ -46,7 +46,7 @@ export default function App() {
             
             <footer className="py-8 px-6 text-center border-t border-gray-200 bg-white/50 backdrop-blur-sm">
               <p className="text-gray-600 text-sm">
-                &copy; 2025 Jordan Rivers. All rights reserved.
+                &copy; 2025 CinePsychic. All rights reserved.
               </p>
             </footer>
           </div>

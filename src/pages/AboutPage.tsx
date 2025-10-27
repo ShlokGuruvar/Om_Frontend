@@ -406,7 +406,7 @@ export function AboutPage({ navigate }: AboutPageProps) {
       <Section spacing="lg" theme="cream">
         <QuoteBlock
           quote="The best creative work happens when you combine technical mastery with genuine passion and an openness to collaboration."
-          author="Jordan Rivers"
+          author="CinePsychic"
           variant="highlighted"
           alignment="center"
         />

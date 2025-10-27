@@ -21,7 +21,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Videography", "Technique"],
     date: "March 15, 2025",
     readTime: "5 min read",
-    author: "Jordan Rivers",
+    author: "CinePsychic",
     featured: true
   },
   {
@@ -33,7 +33,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Photography", "Portraits"],
     date: "March 8, 2025",
     readTime: "7 min read",
-    author: "Jordan Rivers"
+    author: "CinePsychic"
   },
   {
     id: "3",
@@ -44,7 +44,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Animation", "Workflow"],
     date: "February 28, 2025",
     readTime: "6 min read",
-    author: "Jordan Rivers",
+    author: "CinePsychic",
     featured: true
   },
   {
@@ -56,7 +56,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Photography", "Editorial"],
     date: "February 20, 2025",
     readTime: "4 min read",
-    author: "Jordan Rivers"
+    author: "CinePsychic"
   },
   {
     id: "5",
@@ -67,7 +67,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Videography", "Post-Production"],
     date: "February 12, 2025",
     readTime: "8 min read",
-    author: "Jordan Rivers"
+    author: "CinePsychic"
   },
   {
     id: "6",
@@ -78,7 +78,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Career", "Business"],
     date: "February 5, 2025",
     readTime: "5 min read",
-    author: "Jordan Rivers"
+    author: "CinePsychic"
   },
   {
     id: "7",
@@ -89,7 +89,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Workflow", "Team"],
     date: "January 28, 2025",
     readTime: "6 min read",
-    author: "Jordan Rivers"
+    author: "CinePsychic"
   },
   {
     id: "8",
@@ -100,7 +100,7 @@ export const blogPosts: BlogPost[] = [
     tags: ["Photography", "Landscape"],
     date: "January 15, 2025",
     readTime: "7 min read",
-    author: "Jordan Rivers",
+    author: "CinePsychic",
     featured: true
   }
 ];

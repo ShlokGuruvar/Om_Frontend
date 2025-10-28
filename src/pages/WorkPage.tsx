@@ -21,9 +21,32 @@ export function WorkPage({ navigate }: WorkPageProps) {
   const categories = ["All", "Photography", "Videography", "Animation"];
 
   return (
-    <div className="min-h-screen pt-32 pb-24">
+    <div className="min-h-screen pt-20 pb-20">
+      
+      {/* Quote Section */}
+      <Section spacing="md" theme="light">
+        <QuoteBlock
+          quote="Great work is born from the intersection of passion, preparation, and the willingness to see what others overlook."
+          variant="highlighted"
+          alignment="left"
+        />
+      </Section>
+
+      {/* Featured Video */}
+      <Section spacing="sm" theme="cream" layout="full-bleed">
+        <MediaModule
+          src="https://images.unsplash.com/photo-1670411952195-fffeca152dd2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaW5lbWF0aWMlMjBmaWxtbWFrZXIlMjBjYW1lcmF8ZW58MXx8fHwxNzYxMjk0MDk5fDA&ixlib=rb-4.1.0&q=80&w=1080"
+          alt="Cinematic work showcase"
+          type="video"
+          aspectRatio="wide"
+          caption="2025 Showreel — A compilation of recent projects"
+          size="full"
+          parallax
+        />
+      </Section>
+
       {/* Hero Section */}
-      <Section spacing="lg" theme="cream" layout="centered">
+      <Section spacing="sm" theme="cream" layout="centered">
         <div className="max-w-4xl">
           <div className="h-px w-16 bg-[#8B7355] mb-6 mx-auto" />
           <h1 className="text-display mb-8 tracking-tight">
@@ -53,30 +76,8 @@ export function WorkPage({ navigate }: WorkPageProps) {
         </div>
       </Section>
 
-      {/* Quote Section */}
-      <Section spacing="md" theme="light">
-        <QuoteBlock
-          quote="Great work is born from the intersection of passion, preparation, and the willingness to see what others overlook."
-          variant="highlighted"
-          alignment="left"
-        />
-      </Section>
-
-      {/* Featured Video */}
-      <Section spacing="lg" theme="cream" layout="full-bleed">
-        <MediaModule
-          src="https://images.unsplash.com/photo-1670411952195-fffeca152dd2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjaW5lbWF0aWMlMjBmaWxtbWFrZXIlMjBjYW1lcmF8ZW58MXx8fHwxNzYxMjk0MDk5fDA&ixlib=rb-4.1.0&q=80&w=1080"
-          alt="Cinematic work showcase"
-          type="video"
-          aspectRatio="wide"
-          caption="2025 Showreel — A compilation of recent projects"
-          size="full"
-          parallax
-        />
-      </Section>
-
       {/* Work Grid */}
-      <Section spacing="lg" theme="light">
+      <Section spacing="md" theme="light">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((item) => (
             <ContentCard
@@ -96,7 +97,7 @@ export function WorkPage({ navigate }: WorkPageProps) {
       </Section>
 
       {/* Masonry Gallery Section */}
-      <Section spacing="lg" theme="cream">
+      <Section spacing="sm" theme="cream">
         <h2 className="text-h2 mb-12 text-center">Recent Highlights</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           <MediaModule

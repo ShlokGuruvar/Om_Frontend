@@ -55,7 +55,7 @@ export function ContactPage() {
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Email</p>
                     <a href="mailto:hello@jordanrivers.com" className="hover:text-[#8B7355] transition-colors duration-300">
-                      hello@jordanrivers.com
+                      omjain@google.com
                     </a>
                   </div>
                 </div>
@@ -66,8 +66,8 @@ export function ContactPage() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Phone</p>
-                    <a href="tel:+13105551234" className="hover:text-[#8B7355] transition-colors duration-300">
-                      +1 (310) 555-1234
+                    <a href="tel:+919131797693" className="hover:text-[#8B7355] transition-colors duration-300">
+                      +91 9131797693
                     </a>
                   </div>
                 </div>
@@ -78,7 +78,7 @@ export function ContactPage() {
                   </div>
                   <div>
                     <p className="text-sm text-gray-500 mb-1">Location</p>
-                    <p>Los Angeles, CA</p>
+                    <p>Gurugram, Haryana</p>
                     <p className="text-sm text-gray-500">Available for remote work</p>
                   </div>
                 </div>

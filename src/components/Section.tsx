@@ -5,7 +5,7 @@ export interface SectionProps {
   children: ReactNode;
   layout?: "default" | "media-left" | "media-right" | "full-bleed" | "centered";
   theme?: "light" | "dark" | "cream";
-  spacing?: "sm" | "md" | "lg" | "xl";
+  spacing?: "sm" | "md" | "md_lg" | "md_lg_pt" | "lg" | "xl";
   className?: string;
   id?: string;
 }
@@ -27,6 +27,8 @@ const themeStyles = {
 const spacingStyles = {
   sm: "py-12 px-6",
   md: "py-20 px-6",
+  md_lg: "py-28 px-6",
+  md_lg_pt: "pt-32 pb-96 px-6",
   lg: "py-32 px-6",
   xl: "py-40 px-6"
 };

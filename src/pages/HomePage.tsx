@@ -93,7 +93,7 @@ export function HomePage({ navigate }: HomePageProps) {
       </section>
 
       {/* Introduction Section */}
-      <Section spacing="xl" theme="light" layout="centered">
+      <Section spacing="md_lg_pt" theme="light" layout="centered">
         <div className="max-w-4xl">
           <h2 className="text-h1 mb-8 text-center">Crafting Visual Stories</h2>
           <p className="text-lead text-gray-600 text-center leading-relaxed mb-12">
@@ -128,7 +128,7 @@ export function HomePage({ navigate }: HomePageProps) {
       </Section>
 
       {/* Quote Section */}
-      <Section spacing="lg" theme="cream">
+      <Section spacing="sm" theme="cream">
         <QuoteBlock
           quote="I believe in the power of visual storytelling to transcend language and culture, connecting people through shared emotions and experiences."
           author="CinePsychic"
@@ -138,7 +138,7 @@ export function HomePage({ navigate }: HomePageProps) {
       </Section>
 
       {/* Featured Work Preview */}
-      <Section spacing="xl" theme="light">
+      <Section spacing="md" theme="light">
         <div className="text-center mb-16">
           <h2 className="text-h1 mb-6">Featured Projects</h2>
           <p className="text-lead text-gray-600 max-w-2xl mx-auto">
@@ -207,7 +207,7 @@ export function HomePage({ navigate }: HomePageProps) {
       </Section>
 
       {/* Behind the Scenes */}
-      <Section spacing="xl" theme="cream" layout="media-left">
+      <Section spacing="lg" theme="cream" layout="media-left">
         <div>
           <MediaModule
             src="https://images.unsplash.com/photo-1758613654584-86714842a2d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaG90b2dyYXBoZXIlMjBzdHVkaW8lMjBlcXVpcG1lbnR8ZW58MXx8fHwxNzYxNDkxMzIxfDA&ixlib=rb-4.1.0&q=80&w=1080"
@@ -239,7 +239,7 @@ export function HomePage({ navigate }: HomePageProps) {
       </Section>
 
       {/* Stats Section */}
-      <Section spacing="lg" theme="light">
+      <Section spacing="md" theme="light">
         <div className="grid md:grid-cols-4 gap-12 text-center max-w-5xl mx-auto">
           <div>
             <h3 className="text-6xl text-[#8B7355] mb-3">50+</h3>
@@ -261,7 +261,7 @@ export function HomePage({ navigate }: HomePageProps) {
       </Section>
 
       {/* Testimonial Section */}
-      <Section spacing="xl" theme="cream">
+      <Section spacing="sm" theme="cream">
         <div className="max-w-4xl mx-auto">
           <QuoteBlock
             quote="Jordan's ability to capture the essence of our brand through visual storytelling exceeded all expectations. The final result was nothing short of extraordinary."
@@ -274,7 +274,7 @@ export function HomePage({ navigate }: HomePageProps) {
       </Section>
 
       {/* CTA Section */}
-      <Section spacing="xl" theme="dark" layout="centered">
+      <Section spacing="lg" theme="dark" layout="centered">
         <div className="max-w-3xl text-center">
           <h2 className="text-h1 text-white mb-6">
             Let's Create Something Extraordinary

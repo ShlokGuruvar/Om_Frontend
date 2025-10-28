@@ -11,9 +11,9 @@ interface AboutPageProps {
 
 export function AboutPage({ navigate }: AboutPageProps) {
   return (
-    <div className="min-h-screen pt-32 pb-24">
+    <div className="min-h-screen pt-28 pb-20">
       {/* Hero Section */}
-      <Section spacing="lg" theme="light" layout="media-left">
+      <Section spacing="md_lg" theme="light" layout="media-left">
         <div>
           <MediaModule
             src="https://images.unsplash.com/photo-1695477718933-a35f4921e903?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGFydGlzdCUyMHdvcmtzcGFjZXxlbnwxfHx8fDE3NjEwNTMwOTF8MA&ixlib=rb-4.1.0&q=80&w=1080"
@@ -83,7 +83,7 @@ export function AboutPage({ navigate }: AboutPageProps) {
       </Section>
 
       {/* Quote Section */}
-      <Section spacing="md" theme="light">
+      <Section spacing="sm" theme="light">
         <QuoteBlock
           quote="Every project is an opportunity to learn, grow, and push the boundaries of what's possible with visual media."
           variant="large"
@@ -92,7 +92,7 @@ export function AboutPage({ navigate }: AboutPageProps) {
       </Section>
 
       {/* Philosophy Section */}
-      <Section spacing="xl" theme="cream">
+      <Section spacing="lg" theme="cream">
         <div className="text-center mb-16">
           <h2 className="text-h1 mb-6">My Philosophy</h2>
           <p className="text-lead text-gray-600 max-w-3xl mx-auto">
@@ -145,7 +145,7 @@ export function AboutPage({ navigate }: AboutPageProps) {
       </Section>
 
       {/* Journey Section */}
-      <Section spacing="xl" theme="light" layout="media-right">
+      <Section spacing="sm" theme="light" layout="media-right">
         <div>
           <h2 className="text-h2 mb-6">The Journey</h2>
           <p className="text-body text-gray-700 leading-relaxed mb-6">
@@ -181,7 +181,7 @@ export function AboutPage({ navigate }: AboutPageProps) {
       </Section>
 
       {/* Education & Recognition */}
-      <Section spacing="xl" theme="cream">
+      <Section spacing="md" theme="cream">
         <div className="grid md:grid-cols-2 gap-16">
           <div>
             <h2 className="text-h2 mb-8">Education</h2>
@@ -264,7 +264,7 @@ export function AboutPage({ navigate }: AboutPageProps) {
       </Section>
 
       {/* Skills Section */}
-      <Section spacing="xl" theme="light">
+      <Section spacing="md" theme="light">
         <div className="text-center mb-16">
           <h2 className="text-h1 mb-6">Skills & Expertise</h2>
         </div>
@@ -339,7 +339,7 @@ export function AboutPage({ navigate }: AboutPageProps) {
       </Section>
 
       {/* Equipment Section */}
-      <Section spacing="xl" theme="cream" layout="media-left">
+      <Section spacing="md" theme="cream" layout="media-left">
         <div>
           <MediaModule
             src="https://images.unsplash.com/photo-1758613654584-86714842a2d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwaG90b2dyYXBoZXIlMjBzdHVkaW8lMjBlcXVpcG1lbnR8ZW58MXx8fHwxNzYxNDkxMzIxfDA&ixlib=rb-4.1.0&q=80&w=1080"
@@ -380,7 +380,7 @@ export function AboutPage({ navigate }: AboutPageProps) {
       </Section>
 
       {/* Collaboration Section */}
-      <Section spacing="xl" theme="light">
+      <Section spacing="md" theme="light">
         <div className="text-center mb-12">
           <h2 className="text-h2 mb-6">
             Notable Collaborations
@@ -403,7 +403,7 @@ export function AboutPage({ navigate }: AboutPageProps) {
       </Section>
 
       {/* Quote Section */}
-      <Section spacing="lg" theme="cream">
+      <Section spacing="md" theme="cream">
         <QuoteBlock
           quote="The best creative work happens when you combine technical mastery with genuine passion and an openness to collaboration."
           author="CinePsychic"
@@ -413,7 +413,7 @@ export function AboutPage({ navigate }: AboutPageProps) {
       </Section>
 
       {/* CTA Section */}
-      <Section spacing="xl" theme="dark" layout="centered">
+      <Section spacing="lg" theme="dark" layout="centered">
         <div className="max-w-3xl text-center">
           <h2 className="text-h1 text-white mb-6">
             Let's Work Together

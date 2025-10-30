@@ -314,3 +314,40 @@ html {
 .animate-slide-in-right {
   animation: slideInRight var(--duration-slow) var(--ease-out);
 }
+
+/* Bottom Navigation Bar Styles */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  width: 100%;
+}
+
+/* Prevent content from being hidden behind bottom nav */
+body {
+  padding-bottom: 80px; /* Adjust based on your navbar height */
+}
+
+/* Optional: Add top border shadow for elevation effect */
+.bottom-nav-shadow {
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid var(--border);
+}
+
+/* Smooth backdrop blur for bottom nav */
+.bottom-nav-blur {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+.dark .bottom-nav-blur {
+  background-color: rgba(26, 26, 26, 0.95);
+}
+
+/* Safe area padding for mobile devices (iPhone notch) */
+.bottom-nav-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}

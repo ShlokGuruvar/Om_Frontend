@@ -1,5 +1,5 @@
-import { motion, useInView } from "motion/react";
-import { useRef } from "react";
+import { motion } from "motion/react";
+import { useRef, useState, useEffect } from "react";
 import { ChevronDown, Award, Users, Camera } from "lucide-react";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import { Section } from "../components/Section";
@@ -13,10 +13,57 @@ interface HomePageProps {
 }
 
 export function HomePage({ navigate }: HomePageProps) {
+  const [progress, setProgress] = useState(0);
+  const galleryRef = useRef<HTMLDivElement>(null);
+  
+  const galleryImages = [
+    { url: 'https://images.unsplash.com/photo-1707259783407-c448c6a72372?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080', speed: 1 },
+    { url: 'https://images.unsplash.com/photo-1624981015220-a4a68db21303?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080', speed: 0.7 },
+    { url: 'https://images.unsplash.com/photo-1646215450919-3762f2fe24a7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080', speed: 0.4 },
+    { url: 'https://images.unsplash.com/photo-1704208316515-a32f81e373ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080', speed: 1 },
+    { url: 'https://images.unsplash.com/photo-1501446529957-6226bd447c46?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080', speed: 0.7 },
+    { url: 'https://images.unsplash.com/photo-1708004228425-85703b49692e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080', speed: 0.4 },
+    { url: 'https://images.unsplash.com/photo-1533091090875-1ff4acc497dd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080', speed: 1 },
+    { url: 'https://images.unsplash.com/photo-1614607653708-0777e6d003b8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080', speed: 0.7 },
+  ];
+
+  // Scroll listener to update gallery progress
+  useEffect(() => {
+    const onScroll = () => {
+      const el = galleryRef.current;
+      if (!el) return;
+
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+
+      // Distance the section can scroll while visible:
+      // from when its top hits bottom of viewport until its bottom hits top.
+      const sectionHeight = el.offsetHeight;
+      const start = vh;                  // when rect.top == vh (enters from bottom)
+      const end = -sectionHeight;        // when rect.bottom == 0 => rect.top == -sectionHeight
+      const t = (rect.top - start) / (end - start);
+
+      const clamped = Math.min(1, Math.max(0, t));
+      setProgress(clamped);
+    };
+
+    const ro = new ResizeObserver(onScroll);
+    if (galleryRef.current) ro.observe(galleryRef.current);
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      ro.disconnect();
+    };
+  }, []);
+
+  
   return (
     <>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <Section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image with Parallax Effect */}
         <motion.div 
           className="absolute inset-0 z-0"
@@ -73,23 +120,62 @@ export function HomePage({ navigate }: HomePageProps) {
             </motion.button>
           </motion.div>
         </div>
-        
-        {/* Scroll Indicator */}
-        <motion.button
-          onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors duration-300 group"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 1.2 }}
-        >
-          <span className="text-xs uppercase tracking-widest mb-2">Scroll</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-          >
-            <ChevronDown className="w-6 h-6" />
-          </motion.div>
-        </motion.button>
+      </Section>
+
+      {/* Horizontal Scroll Gallery (Scroll Down to Move Sideways) */}
+      <section ref={galleryRef} className="py-20 bg-white overflow-hidden" style={{ minHeight: '250vh' }}>
+        <div className="sticky top-20 mb-16 text-center px-8 z-10 bg-white/80 backdrop-blur-sm py-8">
+          <h2 className="mb-4 tracking-[0.2em] text-sm uppercase text-gray-500">Gallery</h2>
+          <p className="text-4xl">Featured Moments</p>
+        </div>
+
+        <div className="sticky top-1/2 -translate-y-1/2 will-change-transform">
+          {/* Row 1: left -> right */}
+          <div className="w-full overflow-visible -rotate-2 scale-105 mb-8">
+            <div className="relative w-full overflow-visible bg-black p-2.5">
+              <div
+                className="flex gap-2.5"
+                style={{
+                  transform: `translate3d(${-progress * 100}%, 0, 0)`,
+                  willChange: 'transform',
+                }}
+              >
+                {[...galleryImages, ...galleryImages].map((img, idx) => (
+                  <div key={`row1-${idx}`} className="flex-shrink-0 w-80 h-56 md:w-96 md:h-64">
+                    <ImageWithFallback
+                      src={img.url}
+                      alt={`Gallery image ${idx + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Row 2: right -> left */}
+          <div className="w-full overflow-visible rotate-2 scale-105">
+            <div className="relative w-full overflow-visible bg-black p-2.5">
+              <div
+                className="flex gap-2.5"
+                style={{
+                  transform: `translate3d(${progress * 100 - 100}%, 0, 0)`,
+                  willChange: 'transform',
+                }}
+              >
+                {[...galleryImages].reverse().concat([...galleryImages].reverse()).map((img, idx) => (
+                  <div key={`row2-${idx}`} className="flex-shrink-0 w-80 h-56 md:w-96 md:h-64">
+                    <ImageWithFallback
+                      src={img.url}
+                      alt={`Gallery image ${idx + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Introduction Section */}

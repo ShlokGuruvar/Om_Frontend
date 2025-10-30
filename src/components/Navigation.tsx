@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+// Navigation.tsx
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import type { Page } from "./Router";
@@ -11,8 +11,11 @@ interface NavigationProps {
 export function Navigation({ currentPage, navigate }: NavigationProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isNavVisible, setIsNavVisible] = useState(false);
 
   useEffect(() => {
+    setTimeout(() => setIsNavVisible(true), 100);
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -28,21 +31,28 @@ export function Navigation({ currentPage, navigate }: NavigationProps) {
 
   return (
     <>
-      <motion.nav
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        transition={{ duration: 0.6, ease: [0.4, 0, 0.2, 1] }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      <nav
+        className={`fixed rounded-full transition-all duration-500 ${
           isScrolled || currentPage !== 'home'
-            ? 'bg-white/95 backdrop-blur-md py-4 shadow-sm' 
-            : 'bg-transparent py-6'
+            ? 'bg-white/95 backdrop-blur-md py-3 px-8 shadow-lg' 
+            : 'bg-transparent py-4 px-8'
         }`}
+        style={{
+          bottom: '2rem',
+          left: '50%',
+          transform: isNavVisible ? 'translateX(-50%) translateY(0)' : 'translateX(-50%) translateY(100%)',
+          zIndex: 100,
+          transition: 'all 600ms cubic-bezier(0.4, 0, 0.2, 1)',
+          boxShadow: isScrolled || currentPage !== 'home' 
+            ? '0 4px 20px rgba(0,0,0,0.15)' 
+            : 'none'
+        }}
       >
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <div className="flex items-center justify-between gap-4">
           {/* Logo */}
           <button 
             onClick={() => navigate('home')}
-            className={`tracking-[0.3em] uppercase text-sm transition-colors duration-300 ${
+            className={`tracking-[0.3em] uppercase text-sm transition-colors duration-300 whitespace-nowrap ${
               isScrolled || currentPage !== 'home' 
                 ? 'text-black hover:text-[#8B7355]' 
                 : 'text-white hover:text-[#C9A87C]'
@@ -52,7 +62,7 @@ export function Navigation({ currentPage, navigate }: NavigationProps) {
           </button>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             <button 
               onClick={() => handleNavClick('work')}
               className={`transition-colors duration-300 text-sm uppercase tracking-wider ${
@@ -95,7 +105,7 @@ export function Navigation({ currentPage, navigate }: NavigationProps) {
             </button>
             <button 
               onClick={() => handleNavClick('contact')}
-              className={`px-6 py-2 border text-sm uppercase tracking-wider transition-all duration-300 ${
+              className={`px-6 py-2 rounded-full border text-sm uppercase tracking-wider transition-all duration-300 ${
                 isScrolled || currentPage !== 'home'
                   ? 'border-black text-black hover:bg-black hover:text-white'
                   : 'border-white/30 text-white hover:bg-white hover:text-black'
@@ -116,17 +126,17 @@ export function Navigation({ currentPage, navigate }: NavigationProps) {
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
-      </motion.nav>
+      </nav>
 
       {/* Mobile Menu */}
-      <motion.div
-        initial={{ opacity: 0, x: '100%' }}
-        animate={{ 
-          opacity: isMobileMenuOpen ? 1 : 0,
-          x: isMobileMenuOpen ? 0 : '100%'
+      <div
+        className={`fixed inset-0 bg-white md:hidden flex flex-col items-center justify-center gap-8 transition-all duration-300 ease-in-out ${
+          isMobileMenuOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'
+        }`}
+        style={{
+          zIndex: 90,
+          transition: 'opacity 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1)',
         }}
-        transition={{ duration: 0.3, ease: [0.4, 0, 0.2, 1] }}
-        className="fixed inset-0 bg-white z-40 md:hidden flex flex-col items-center justify-center gap-8"
       >
         <button 
           onClick={() => handleNavClick('work')}
@@ -158,7 +168,7 @@ export function Navigation({ currentPage, navigate }: NavigationProps) {
         >
           Contact
         </button>
-      </motion.div>
+      </div>
     </>
   );
 }
